@@ -202,7 +202,7 @@ class RetinaWrapper(object):
             left = int(max(0, np.floor(left + 0.5).astype('int32')))
             bottom = int(min(image.size[1], np.floor(bottom + 0.5).astype('int32')))
             right = int(min(image.size[0], np.floor(right + 0.5).astype('int32')))
-            print((left, top, right, bottom), self.idx2class[label_], score))
+            print((left, top, right, bottom), self.idx2class[label_], score)
             detected_result_list.append(((left, top, right, bottom), self.idx2class[label_], score))
 
         print("--- %s seconds ---" % (time.time() - start_time))
