@@ -174,3 +174,36 @@ Contributions to this project are welcome.
 
 ### Discussions
 Feel free to join the `#keras-retinanet` [Keras Slack](https://keras-slack-autojoin.herokuapp.com/) channel for discussions and questions.
+
+
+
+
+
+### Bottle server implement
+## add bottle server
+Add a bottle server for receving images
+ 
+```bash
+python3 ./bottle_test_retina.py snapshots/resnet50_coco_best_v1.2.2.h5 -s 0.67 -o /MAS/pics
+```
+ip is the host, port used to listen
+target is the path to save image and put sqlite file
+
+
+## add a naive webcam program used to post image to bottle server
+two implement for opencv, pygame (my raspberry pi fails with opencv)
+
+```bash
+# if nosave will used sent_image_bytes method [not stable in raspberrypi]
+python3 webcam_capture_opencv.py --ip localhost:5566 -o . --nosave  
+```
+
+```bash
+# using pygame to start webcam and save image [not stable in raspberrypi]
+python3 webcam_capture_pygame.py --ip localhost:5566 -o .
+```
+
+```bash
+# using fswebcam to start webcam and save img
+python3 webcam_capture_fswebcam.py --ip localhost:5566 -o .
+```
